@@ -32,7 +32,13 @@ var paths = {
         root: '/home/vertigo/projects/claims-pl-common/CLM_PL_INTEGRATION/',
         target: '/home/vertigo/projects/claims-pl-common/CLM_PL_INTEGRATION/target/CLM_PL_INTEGRATION-1.0.0.jar',
         remotePath: '/opt/ibm/mcp/'
-        }
+        },
+  bhintegrations: {
+        target: ['claims-bh-all/BPM/BPM_INTEGRATION/target/bpm-integration-1.0.0.jar',
+                 'claims-bh-all/CLAIMS/CLM_INTEGRATION/target/clm-integration-1.0.0.jar',
+                 'claims-pl-common/CLM_PL_INTEGRATION/target/CLM_PL_INTEGRATION-1.0.0.jar'],
+        remotePath: '/opt/ibm/mcp/'
+  }
   // prodfiles : ["build/*.html", "build/scripts/*.js", "build/styles/*.css"]
 };
 
@@ -128,3 +134,14 @@ gulp.task('integration:compile', function() {
   return gulp.src(paths.integration.root)
     .pipe(shell('cd claims-pl-common/CLM_PL_INTEGRATION && mvn clean install'));
 });
+
+
+gulp.task('deploy:bhlibs', function() {
+  console.log("BH integrations deploying");
+  var opt = sftpOptions;
+  opt.remotePath = paths.bhintegrations.remotePath;
+
+  return gulp.src(paths.bhintegrations.target)
+    .pipe(wait(1050))
+    .pipe(sftp(opt));
+}); 
