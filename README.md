@@ -7,12 +7,12 @@
 4) $ npm install --save-dev gulp-util
 
 ###Tasks###
-⋅⋅* watch:source
-⋅⋅* deploy:js
-⋅⋅* deploy:jsp
-⋅⋅* deploy:flow
-⋅⋅* deploy:java
-⋅⋅* deploy:bhlibs
-⋅⋅* deploy:integration
-⋅⋅* portlet:compile
-⋅⋅* integration:compile
+1. watch:source
+2. deploy:js
+3. deploy:jsp
+4. deploy:flow
+5. deploy:java
+6. deploy:bhlibs
+7. deploy:integration
+8. portlet:compile
+9. integration:compile
