@@ -1,12 +1,12 @@
 # cbr-auto-deployment-tool
 
-Installation
+###Installation###
 1) Install node.js
 2) $ npm install --global gulp
 3) $ npm install --save-dev gulp
 4) $ npm install --save-dev gulp-util
 
-Tasks
+###Tasks###
 1) watch:source
 2) deploy:js
 3) deploy:jsp
